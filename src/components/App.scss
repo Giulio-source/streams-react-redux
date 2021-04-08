@@ -17,10 +17,21 @@ button {
   border-radius: 5px;
   font-family: inherit;
   font-size: inherit;
+  margin: 1rem;
   &:hover {
     background: white;
     color: rgb(70, 70, 70);
   }
+}
+
+input[type="text"] {
+  background: transparent;
+  padding: 1rem;
+  border-radius: 5px;
+  border: solid 1px white;
+  margin: 1rem;
+  font-size: 1rem;
+  color: white;
 }
 
 .nav-bar {
@@ -41,4 +52,18 @@ button {
 .router-content {
   margin: 50px 10px;
   font-size: 1.8rem;
+}
+
+.stream-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  border: solid 1px white;
+  border-radius: 25px;
+  padding: 20px 60px;
+  font-size: 1.5rem;
+  background: url("http://localhost:3000/photo-camera.png");
+  p {
+    margin: 5px 0;
+  }
 }

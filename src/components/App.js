@@ -20,7 +20,7 @@ function App() {
           <Route path="/" exact>
             <StreamList />
           </Route>
-          <Route path="/streams/new">
+          <Route path="/streams/create">
             <StreamCreate />
           </Route>
           <Route path="/streams/edit">
