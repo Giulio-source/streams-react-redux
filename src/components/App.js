@@ -6,11 +6,11 @@ import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
 import Header from "./Header";
-import "./App.scss";
+import "./App.css";
 
 function App() {
   return (
-    <Router>
+    <Router forceRefresh={true}>
       <div>
         <Header />
 
@@ -23,10 +23,10 @@ function App() {
           <Route path="/streams/create">
             <StreamCreate />
           </Route>
-          <Route path="/streams/edit">
+          <Route path="/streams/edit/:id">
             <StreamEdit />
           </Route>
-          <Route path="/streams/delete">
+          <Route path="/streams/delete/:id">
             <StreamDelete />
           </Route>
           <Route path="/streams/show">

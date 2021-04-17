@@ -1,45 +1,23 @@
-import axios from "axios";
 import React from "react";
-import { Form, Field } from "react-final-form";
 import { useDispatch } from "react-redux";
 import { createStream } from "../../actions";
+import { useHistory } from "react-router-dom";
+import StreamForm from "./StreamForm";
 
 function StreamCreate() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onSubmit = (data) => {
     dispatch(createStream(data));
+    history.push("/");
   };
 
   return (
-    <Form
-      onSubmit={onSubmit}
-      render={({ handleSubmit, form, submitting, pristine, values }) => (
-        <form onSubmit={handleSubmit}>
-          <div>
-            <Field
-              name="title"
-              component="input"
-              type="text"
-              placeholder="Title"
-              required
-            />
-          </div>
-          <div>
-            <Field
-              name="description"
-              component="input"
-              type="text"
-              placeholder="Description"
-              required
-            />
-          </div>
-          <div className="buttons">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      )}
-    />
+    <div>
+      <h3>Create Stream</h3>
+      <StreamForm onSubmit={onSubmit} />
+    </div>
   );
 }
 

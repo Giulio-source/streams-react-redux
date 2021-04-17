@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchStreams } from "../../actions";
+import { Link } from "react-router-dom";
 
 function StreamList() {
   const dispatch = useDispatch();
@@ -11,12 +12,16 @@ function StreamList() {
     dispatch(fetchStreams());
   }, []);
 
-  const renderedButtons = (streamId) => {
+  const renderedButtons = (streamId, id) => {
     if (auth.userId === streamId && auth.userId !== null) {
       return (
-        <div className="stream-buttons">
-          <button>Edit</button>
-          <button>Delete</button>
+        <div className="stream-buttons flex">
+          <Link to={`/streams/edit/${id}`} className="button">
+            Edit
+          </Link>
+          <Link to={`/streams/delete/${id}`} className="button">
+            Delete
+          </Link>
         </div>
       );
     } else {
@@ -30,12 +35,30 @@ function StreamList() {
         <p className="stream-title">{stream.title}</p>
         <p className="stream-description">{stream.description}</p>
       </div>
-      {renderedButtons(stream.userId)}
+      {renderedButtons(stream.userId, stream.id)}
     </div>
   ));
 
+  const renderCreate = () => {
+    if (auth.isSignedIn) {
+      console.log("I am signed in");
+      return (
+        <Link to="/streams/create" className="button">
+          Create Stream
+        </Link>
+      );
+    } else {
+      return;
+    }
+  };
+
   return (
-    <div className="streams-list">{renderedStreams ? renderedStreams : ""}</div>
+    <div>
+      <div className="streams-list">
+        {renderedStreams ? renderedStreams : ""}
+      </div>
+      <div className="create-container flex jcfe">{renderCreate()}</div>
+    </div>
   );
 }
 

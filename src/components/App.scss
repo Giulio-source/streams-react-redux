@@ -9,7 +9,8 @@ body {
   font-family: "Dosis", sans-serif;
 }
 
-button {
+button,
+.button {
   background: rgba($color: #000000, $alpha: 0);
   border: 1px solid white;
   color: white;
@@ -65,5 +66,42 @@ input[type="text"] {
   background: url("http://localhost:3000/photo-camera.png");
   p {
     margin: 5px 0;
+  }
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.flex {
+  display: flex;
+}
+.jcc {
+  justify-content: center;
+}
+.jcfs {
+  justify-content: flex-start;
+}
+.jcfe {
+  justify-content: flex-end;
+}
+
+.modal-background {
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(73, 73, 73, 0.466);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // visibility: hidden;
+  .modal-container {
+    background: rgb(102, 102, 102);
+    border-radius: 20px;
+    padding: 2rem;
   }
 }
