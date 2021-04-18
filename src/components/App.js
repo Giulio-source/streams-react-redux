@@ -6,32 +6,35 @@ import StreamEdit from "./streams/StreamEdit";
 import StreamList from "./streams/StreamList";
 import StreamShow from "./streams/StreamShow";
 import Header from "./Header";
+import history from "./history";
 import "./App.css";
 
 function App() {
   return (
-    <Router forceRefresh={true}>
+    <Router forceRefresh={true} /*history={history}*/>
       <div>
         <Header />
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <div className="router-content">
-          <Route path="/" exact>
-            <StreamList />
-          </Route>
-          <Route path="/streams/create">
-            <StreamCreate />
-          </Route>
-          <Route path="/streams/edit/:id">
-            <StreamEdit />
-          </Route>
-          <Route path="/streams/delete/:id">
-            <StreamDelete />
-          </Route>
-          <Route path="/streams/show">
-            <StreamShow />
-          </Route>
+          <Switch>
+            <Route path="/" exact>
+              <StreamList />
+            </Route>
+            <Route path="/streams/create">
+              <StreamCreate />
+            </Route>
+            <Route path="/streams/edit/:id">
+              <StreamEdit />
+            </Route>
+            <Route path="/streams/delete/:id">
+              <StreamDelete />
+            </Route>
+            <Route path="/streams/:id">
+              <StreamShow />
+            </Route>
+          </Switch>
         </div>
       </div>
     </Router>

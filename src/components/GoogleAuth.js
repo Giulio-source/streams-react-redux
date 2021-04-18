@@ -7,7 +7,6 @@ function GoogleAuth() {
   const googleAuthStatus = useSelector((state) => state.auth.isSignedIn);
   const googleUserId = useSelector((state) => state.auth.userId);
   console.log("GOOGLE STATUS", googleAuthStatus, googleUserId);
-  console.log("Rerendered");
   useEffect(() => {
     window.gapi.load("auth2", () => {
       window.gapi.auth2

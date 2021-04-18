@@ -32,7 +32,9 @@ function StreamList() {
   const renderedStreams = streams.map((stream) => (
     <div className="stream-item" key={stream.id}>
       <div className="stream-content">
-        <p className="stream-title">{stream.title}</p>
+        <Link to={`/streams/${stream.id}`} className="stream-title">
+          {stream.title}
+        </Link>
         <p className="stream-description">{stream.description}</p>
       </div>
       {renderedButtons(stream.userId, stream.id)}
